@@ -11,3 +11,5 @@ env/
 .idea/
 .DS_Store
 Thumbs.db
+src/windows/__pycache__/analysis_window.cpython-311.pyc
+src/windows/__pycache__/main_window.cpython-311.pyc
