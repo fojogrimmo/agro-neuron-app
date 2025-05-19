@@ -4,6 +4,7 @@ from PyQt6.QtCore import Qt, QPoint
 
 from ..styles.buttons import PRIMARY_BUTTON
 from .analysis_window import AnalysisWindow
+from .how_it_works_window import HowItWorksWindow
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -40,6 +41,7 @@ class MainWindow(QMainWindow):
         
         # Подключаем обработчики кнопок
         self.start_button.clicked.connect(self.open_analysis_window)
+        self.how_it_works_button.clicked.connect(self.open_how_it_works_window)
         
         # Добавляем виджеты в layout
         layout.addStretch()
@@ -68,4 +70,8 @@ class MainWindow(QMainWindow):
     
     def open_analysis_window(self):
         self.analysis_window = AnalysisWindow()
-        self.analysis_window.show() 
+        self.analysis_window.show()
+        
+    def open_how_it_works_window(self):
+        self.how_it_works_window = HowItWorksWindow()
+        self.how_it_works_window.show() 

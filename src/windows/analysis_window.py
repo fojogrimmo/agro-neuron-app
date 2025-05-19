@@ -10,7 +10,7 @@ from ..widgets.image_preview import ImagePreview
 class AnalysisWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Анализ всхожести")
+        self.setWindowTitle("Анализ всхожести посевных площадей")
         self.setFixedSize(1200, 800)
         self.setWindowIcon(QIcon("images/logo_green.png"))
         self.setup_ui()
