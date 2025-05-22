@@ -1,7 +1,10 @@
 from PyQt6.QtWidgets import (QMainWindow, QLabel, QVBoxLayout, 
-                           QWidget, QHBoxLayout, QFrame, QSizePolicy)
+                           QWidget, QHBoxLayout, QFrame, QSizePolicy,
+                           QPushButton)
 from PyQt6.QtGui import QFont, QIcon, QPixmap
 from PyQt6.QtCore import Qt
+
+from ..styles.buttons import PRIMARY_BUTTON
 
 class InfoCard(QFrame):
     def __init__(self, image_path, title, description, parent=None):
@@ -56,7 +59,7 @@ class HowItWorksWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Как это работает?")
-        self.setFixedSize(1200, 800)
+        self.setFixedSize(1200, 850)
         self.setWindowIcon(QIcon("images/logo_green.png"))
         self.setup_ui()
         
@@ -139,3 +142,18 @@ class HowItWorksWindow(QMainWindow):
         main_layout.addSpacing(20)
         main_layout.addLayout(cards_layout)
         main_layout.addStretch()
+        
+        # Добавляем кнопку закрытия
+        close_button = QPushButton("Вернуться на главную")
+       
+        close_button.setStyleSheet(PRIMARY_BUTTON)
+        close_button.clicked.connect(self.close)
+        
+        # Создаем контейнер для кнопки с центрированием
+        button_container = QWidget()
+        button_layout = QHBoxLayout(button_container)
+        button_layout.addStretch()
+        button_layout.addWidget(close_button)
+        button_layout.addStretch()
+        
+        main_layout.addWidget(button_container)
